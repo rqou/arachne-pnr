@@ -382,15 +382,9 @@ main(int argc, const char **argv)
   if (chipdb_file)
     chipdb_file_s = chipdb_file;
   else
-#ifdef _WIN32
-    chipdb_file_s = (std::string("+/chipdb-")
-                     + device
-                     + ".bin");
-#else
     chipdb_file_s = (std::string("+/share/arachne-pnr/chipdb-")
                      + device 
                      + ".bin");
-#endif
   *logs << "read_chipdb " << chipdb_file_s << "...\n";
   const ChipDB *chipdb = read_chipdb(chipdb_file_s);
   
